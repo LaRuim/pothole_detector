@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+   <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+	<!-- partial:index.partial.html -->
+	<h1>Welcome to PANACEA</h1>
+	<div>
+	  <form action="/upload" method="post">
+	    <div class="container">
+	      <h1>Image Upload
+		<small>with preview</small>
+	      </h1>
+	      <input type = "text" id="lat" hidden>
+    	      <input type = "text" id="long" hidden>
+	    <div class="avatar-upload">
+		<div class="avatar-edit">
+		    <input type='file' onclick="getLocation()" id="imageUpload" accept=".png, .jpg, .jpeg" />
+		    <label for="imageUpload"></label>
+		</div>
+		<div class="avatar-preview">
+		    <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+		    </div>
+		</div>
+	    </div>
+
+	    <div>
+		<hr>
+		  <div class= "row blank-space"></div>
+	    </div>
+
+	    <div class = "row">
+	      <h2>Description (Optional)</h2>
+	      <hr>
+            </div>
+
+	    <div id = "contact" class = "row">
+	      <div class = "col-md-6">
+	        <input type = "text" id="dsc" class = "form-control underline-style" placeholder= "Describe" size="100">
+	      </div>
+	    </div>
+
+	    <div class="surya">
+		<br>
+		<button class="bottom" type="submit"> Upload </button>
+	    </div>
+	  </form>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="./script.js"></script>
+	<script>
+		var x = document.getElementById("lat");
+		var y = document.getElementById("long");
+		function getLocation() {
+		  if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		  } else {
+		    x.innerHTML = "Geolocation is not supported by this browser.";
+		  }
+		}
+
+		function showPosition(position) {
+		  x.value = position.coords.latitude;
+		  y.value = position.coords.longitude;
+		}
+	</script>
+
+
+	<div class="outer-menu">
+	  <input class="checkbox-toggle" type="checkbox" />
+	  <div class="hamburger">
+	    <div></div>
+	  </div>
+	  <div class="menu">
+	    <div>
+	      <div>
+		<ul>
+		  <li><a href="#">About</a></li>
+		  <li><a href="#">Upload a Picture</a></li>
+		  <li><a href="#">Profile</a></li>
+		  <li><a href="#">Contact Us</a></li>
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- partial -->
+  </body>
+</html>
